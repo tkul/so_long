@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:44:50 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:44:50 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/13 12:15:50 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/13 13:23:51 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	c = (unsigned char)c;
 	while (n && *ptr != c)
 	{
-		++ptr;
-		--n;
+		ptr++;
+		n--;
 	}
 	if (n)
 		return ((void *)ptr);

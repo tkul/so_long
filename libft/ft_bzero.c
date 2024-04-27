@@ -3,23 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:43:43 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:43:43 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/11 16:41:03 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/11 16:41:03 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
-	unsigned char	*p;
-
-	p = s;
-	while (n)
-	{
-		*p++ = 0;
-		--n;
-	}
+	ft_memset (s, 0, len);
 }

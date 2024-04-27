@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:49:52 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:49:52 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/13 13:30:27 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/13 13:30:46 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (*big == *little && ft_strncmp(big, little, n) == 0)
 			return ((char *)big);
-		++big;
-		--len;
+		big++;
+		len--;
 	}
 	return (NULL);
 }

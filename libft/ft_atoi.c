@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:43:35 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:43:35 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/11 17:41:08 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/11 17:41:08 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ static int	ft_isspace(char c)
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;
-	int		sign;
 	int		res;
+	int		sign;
 
 	i = 0;
 	res = 0;
 	sign = 1;
 	while (ft_isspace(nptr[i]))
-		++i;
+		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			sign = -1;
-		++i;
+		i++;
 	}
-	while ('0' <= nptr[i] && nptr[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		res = res * 10 + (nptr[i] - '0');
-		++i;
+		res = res * 10 +(nptr[i] - '0');
+		i++;
 	}
-	return (sign * res);
+	return (res * sign);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 12:57:46 by egumus            #+#    #+#             */
-/*   Updated: 2023/11/24 14:21:14 by egumus           ###   ########.fr       */
+/*   Created: 2023/12/15 09:56:02 by tkul              #+#    #+#             */
+/*   Updated: 2024/04/28 01:59:06 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*get_putremain(char *putline)
+char	*get_putremain(char *putline)
 {
 	int		i;
 	int		j;
@@ -26,7 +26,7 @@ static char	*get_putremain(char *putline)
 		free(putline);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(putline) - i));
+	str = (char *)ft_calloc_gnl(sizeof(char), (ft_strlen(putline) - i));
 	if (!str)
 		return (NULL);
 	i++;
@@ -36,12 +36,11 @@ static char	*get_putremain(char *putline)
 		str[j] = putline[j + i];
 		j++;
 	}
-	str[j] = '\0';
 	free(putline);
 	return (str);
 }
 
-static char	*get_main_line(char *putline)
+char	*get_main_line(char *putline)
 {
 	int		i;
 	char	*str;
@@ -51,7 +50,7 @@ static char	*get_main_line(char *putline)
 		return (NULL);
 	while (putline[i] != '\0' && putline[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * i + 2);
+	str = (char *)ft_calloc_gnl(sizeof(char), i + 2);
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -65,16 +64,15 @@ static char	*get_main_line(char *putline)
 		str[i] = putline[i];
 		i++;
 	}
-	str[i] = '\0';
 	return (str);
 }
 
-static char	*get_read(int fd, char *putline)
+char	*get_read(int fd, char *putline)
 {
 	char	*buff;
 	int		reader;
 
-	buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	buff = (char *)ft_calloc_gnl(sizeof(char), BUFFER_SIZE + 1);
 	if (!buff)
 		return (0);
 	reader = 1;
@@ -97,7 +95,7 @@ static char	*get_read(int fd, char *putline)
 char	*get_next_line(int fd)
 {
 	char		*mainline;
-	static char	*putline[1000];
+	static char	*putline[10000];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

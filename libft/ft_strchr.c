@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:47:28 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:47:28 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/09 13:20:22 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/13 13:28:53 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*ptr;
+	const char	*ptr;
 
-	ptr = (unsigned char *)s;
+	ptr = (const char *)s;
 	while (*ptr)
 	{
-		if (*ptr == (unsigned char)c)
+		if (*ptr == (const char)c)
 			return ((char *)ptr);
 		ptr++;
 	}
-	if (*ptr == (unsigned char)c)
+	if (*ptr == (const char)c)
 		return ((char *)ptr);
 	return (NULL);
 }

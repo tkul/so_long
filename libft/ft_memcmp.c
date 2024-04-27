@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:44:59 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:44:59 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/13 12:15:48 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/13 13:24:24 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
@@ -21,12 +21,11 @@ int	ft_memcmp(void *dest, const void *src, size_t n)
 	s = (unsigned char *)src;
 	while (n && *d == *s)
 	{
-		++d;
-		++s;
-		--n;
+		d++;
+		s++;
+		n--;
 	}
 	if (n)
 		return (*d - *s);
-	else
-		return (0);
+	return (0);
 }

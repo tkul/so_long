@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 01:51:08 by egumus            #+#    #+#             */
-/*   Updated: 2024/04/26 23:17:52 by tkul             ###   ########.fr       */
+/*   Created: 2024/04/28 01:32:47 by tkul              #+#    #+#             */
+/*   Updated: 2024/04/28 02:00:05 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	map_border_checker(t_state *state, int fd)
 		tmp = line;
 		check_borders(line, h, w);
 		line = get_next_line(fd);
-		if (line == NULL && !is_full_of(tmp, w, '1'))
+		if (line == NULL && (!is_full_of(tmp, w, '1') || tmp[w] != '\0'))
 			exit_err(7, "Last layer is not full of '1'.", state);
 		free(tmp);
 	}

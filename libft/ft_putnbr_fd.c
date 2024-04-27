@@ -3,40 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 22:28:46 by egumus            #+#    #+#             */
-/*   Updated: 2023/10/05 03:56:23 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/14 00:52:19 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/18 00:02:21 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	make_job(long nb, int *level, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
+	long int	nb;
+	char		c;
+
+	if (fd < 0)
+		return ;
+	nb = n;
 	if (nb < 0)
 	{
-		ft_putchar_fd('-', fd);
 		nb *= -1;
+		if (!write (fd, "-", 1))
+			return ;
 	}
-	if (nb > 9)
+	if (nb < 10)
 	{
-		make_job(nb / 10, level, fd);
-		make_job(nb % 10, level, fd);
+		c = nb + '0';
+		if (!write(fd, &c, 1))
+			return ;
 	}
 	else
 	{
-		ft_putchar_fd(nb + '0', fd);
-		(*level)++;
+		ft_putnbr_fd(nb / 10, fd);
+		c = nb % 10 + '0';
+		if (!write(fd, &c, 1))
+			return ;
 	}
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	int		level;
-	long	nb;
-
-	level = 0;
-	nb = n;
-	make_job(nb, &level, fd);
 }

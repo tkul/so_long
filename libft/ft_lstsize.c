@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 00:45:58 by egumus            #+#    #+#             */
-/*   Updated: 2023/10/05 01:03:29 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/19 23:53:40 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/20 01:32:24 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		i;
 	t_list	*current;
+	int		i;
 
 	if (!lst)
 		return (0);
-	current = lst;
 	i = 0;
+	current = lst;
 	while (current)
 	{
-		current = current->next;
+		current = current -> next;
 		i++;
 	}
 	return (i);

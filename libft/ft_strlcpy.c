@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:49:28 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:49:28 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/11 19:43:49 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/11 19:43:49 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (!size)
 		return (ft_strlen(src));
 	i = 0;
-	while (src[i] && (i < size - 1))
+	while (src[i] && i < size - 1)
 	{
 		dst[i] = src[i];
 		i++;

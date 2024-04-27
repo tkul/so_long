@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:23:21 by egumus            #+#    #+#             */
-/*   Updated: 2023/10/05 03:57:34 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/18 09:18:37 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/23 21:19:01 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ static int	count_digit_and_is_negative(long n)
 	return (count);
 }
 
-static void	make_job(char *str, size_t nb, int *level)
+static void	ft_make(char *str, size_t nb, int *level)
 {
 	if (nb > 9)
 	{
-		make_job(str, nb / 10, level);
-		make_job(str, nb % 10, level);
+		ft_make(str, nb / 10, level);
+		ft_make(str, nb % 10, level);
 	}
 	else
 	{
@@ -52,13 +52,11 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		level;
 	long	nb;
-	size_t	i;
 
 	nb = n;
 	str = (char *)malloc(sizeof(char) * (count_digit_and_is_negative(nb) + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
 	level = 0;
 	if (n < 0)
 	{
@@ -66,7 +64,7 @@ char	*ft_itoa(int n)
 		nb = nb * -1;
 		level++;
 	}
-	make_job(str, (size_t)nb, &level);
+	ft_make(str, (size_t)nb, &level);
 	str[level] = '\0';
 	return (str);
 }

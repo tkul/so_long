@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:45:06 by egumus            #+#    #+#             */
-/*   Updated: 2023/09/30 23:45:06 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/11 16:41:00 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/11 16:41:00 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d = dest;
 	s = src;
 	while (n-- > 0)
+	{
 		*d++ = *s++;
+	}
 	return (dest);
 }

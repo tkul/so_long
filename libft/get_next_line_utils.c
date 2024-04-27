@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 12:59:21 by egumus            #+#    #+#             */
-/*   Updated: 2023/11/24 12:59:39 by egumus           ###   ########.fr       */
+/*   Created: 2023/12/15 09:56:18 by tkul              #+#    #+#             */
+/*   Updated: 2024/04/28 01:54:25 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen_gnl(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strchr_gnl(const char *s, int c)
 {
@@ -47,13 +35,10 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	char	*s3;
 
 	if (!s1)
-	{
-		s1 = (char *)malloc(1 * sizeof(char));
-		s1[0] = '\0';
-	}
+		s1 = (char *)ft_calloc(1, sizeof(char));
 	if (!s1 || !s2)
 		return (NULL);
-	s3 = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	s3 = (char *)ft_calloc(1, ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!s3)
 		return (NULL);
 	i = -1;
@@ -64,7 +49,23 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	{
 		s3[i + j] = s2[j];
 	}
-	s3[i + j] = 0;
 	free(s1);
 	return (s3);
+}
+
+void	*ft_calloc_gnl(size_t count, size_t size)
+{
+	void	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	while (i < count * size)
+	{
+		((char *)ptr)[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

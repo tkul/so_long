@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 04:33:24 by egumus            #+#    #+#             */
-/*   Updated: 2024/04/26 23:15:13 by tkul             ###   ########.fr       */
+/*   Created: 2024/04/28 01:33:44 by tkul              #+#    #+#             */
+/*   Updated: 2024/04/28 02:27:22 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # define KEY_S 1
 # define KEY_D 2
 
-# define RIGHT_DIR 0
-# define LEFT_DIR 1
-# define DOWN_DIR 2
-# define UP_DIR 3
+# define RIGHT_DIR 2
+# define LEFT_DIR 0
+# define DOWN_DIR 1
+# define UP_DIR 13
 
 # define TILE_SIZE 64
 

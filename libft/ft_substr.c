@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egumus <egumus@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 23:56:43 by egumus            #+#    #+#             */
-/*   Updated: 2023/10/04 19:25:11 by egumus           ###   ########.fr       */
+/*   Created: 2023/10/18 01:06:02 by tkul              #+#    #+#             */
+/*   Updated: 2023/10/18 01:24:57 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	count;
+	size_t	i;
 	size_t	size;
-	char	*tab;
+	char	*str;
 
 	if (!s)
 		return (NULL);
@@ -25,15 +25,15 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size = ft_strlen(s + start);
 	if (size < len)
 		len = size;
-	tab = (char *)malloc((len + 1) * sizeof(char));
-	if (!tab)
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	count = 0;
-	while (count < len)
+	i = 0;
+	while (i < len)
 	{
-		tab[count] = s[start + count];
-		count++;
+		str[i] = s[start + i];
+		i++;
 	}
-	tab[count] = '\0';
-	return (tab);
+	str[i] = '\0';
+	return (str);
 }
