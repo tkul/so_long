@@ -6,7 +6,7 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 01:32:38 by tkul              #+#    #+#             */
-/*   Updated: 2024/04/28 01:51:41 by tkul             ###   ########.fr       */
+/*   Updated: 2024/04/28 03:21:06 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ static void	init_state(t_state *state)
 int	main(int ac, char **av)
 {
 	t_state	*state;
-	int		err;
 
-	err = 0;
 	if (ac != 2)
 		exit_err(1, "You have to pass 2 arguments", NULL);
 	state = malloc(sizeof(t_state));

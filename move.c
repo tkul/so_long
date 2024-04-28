@@ -6,31 +6,11 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 02:27:29 by tkul              #+#    #+#             */
-/*   Updated: 2024/04/28 02:27:31 by tkul             ###   ########.fr       */
+/*   Updated: 2024/04/28 03:43:40 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_redraw_map(t_state *state)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < state->map->height)
-	{
-		x = 0;
-		while (x < state->map->width)
-		{
-			if (state->map->board[y][x] == 'P')
-				state->map->board[y][x] = '0';
-			x++;
-		}
-		y++;
-	}
-	state->map->board[state->player->y][state->player->x] = 'P';
-}
 
 int	is_next_tile_is(t_state *state, int direction, char tile)
 {
